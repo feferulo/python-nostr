@@ -1,0 +1,37 @@
+[project]
+name = "python-nostr"
+version = "0.1.0"
+description = "A Python implementation of the Nostr protocol."
+authors = [
+    {name = "feferulo",email = "fede.carra@gmail.com"}
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+]
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.0.3,<10.0.0)"
+]
+test = [
+    "pytest (>=9.0.3,<10.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.poetry]
+packages = [
+    {include = "nostr_core", from = "src"},
+    {include = "nostr_relay", from = "src"},
+    {include = "nostr_client", from = "src"},
+]
