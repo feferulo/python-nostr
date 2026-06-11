@@ -15,10 +15,13 @@ dependencies = [
 dev = [
     "pytest (>=9.0.3,<10.0.0)"
 ]
-test = [
-    "pytest (>=9.0.3,<10.0.0)"
-]
 
+[tool.poetry]
+packages = [
+    {include = "nostr_core", from = "src"},
+    {include = "nostr_relay", from = "src"},
+    {include = "nostr_client", from = "src"},
+]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
@@ -29,9 +32,4 @@ addopts = ["--import-mode=importlib"]
 testpaths = ["tests"]
 pythonpath = ["src"]
 
-[tool.poetry]
-packages = [
-    {include = "nostr_core", from = "src"},
-    {include = "nostr_relay", from = "src"},
-    {include = "nostr_client", from = "src"},
-]
+
