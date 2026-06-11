@@ -2,31 +2,47 @@
 name = "python-nostr"
 version = "0.1.0"
 description = "A Python implementation of the Nostr protocol."
-authors = [
-    {name = "feferulo",email = "fede.carra@gmail.com"}
-]
-license = "MIT"
-readme = "README.md"
+authors = [{ name = "feferulo", email = "fede.carra@gmail.com" }]
 requires-python = ">=3.10"
-dependencies = [
-    "coincurve (>=21.0.0,<22.0.0)"
+readme = "README.md"
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
 ]
+dependencies = ["coincurve (>=21.0.0,<22.0.0)"]
 
 [dependency-groups]
 dev = [
     "pytest (>=9.0.3,<10.0.0)"
 ]
 
-[tool.poetry]
-packages = [
-    {include = "nostr_core", from = "src"},
-    {include = "nostr_relay", from = "src"},
-    {include = "nostr_client", from = "src"},
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/nostr_core",
+    "src/nostr_relay",
+    "src/nostr_client",
 ]
 
+[tool.hatch.build.targets.wheel]
+include = [
+    "src/nostr_core",
+    "src/nostr_relay",
+    "src/nostr_client",
+]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/nostr_core" = "nostr_core"
+"src/nostr_relay" = "nostr_relay"
+"src/nostr_client" = "nostr_client"
+
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.pytest.ini_options]
 addopts = ["--import-mode=importlib"]
