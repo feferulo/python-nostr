@@ -112,20 +112,20 @@ RELAY → CLIENT   ["NOTICE", "<message>"]         human-readable message
 
 ## Development setup
 
-Requires Python 3.10+.
+Requires Python 3.10+ and [Poetry](https://python-poetry.org/docs/#installation).
 
 ```bash
 git clone https://github.com/feferulo/python-nostr
 cd python-nostr
-python -m venv .venv
-source .venv/bin/activate
-pip install -e ".[dev]"
+poetry install
 ```
+
+Poetry creates and manages the virtual environment automatically. All dependencies including dev dependencies are installed in one command.
 
 ## Running tests
 
 ```bash
-python -m pytest
+poetry run pytest
 ```
 
 ## Design decisions
