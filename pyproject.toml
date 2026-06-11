@@ -9,6 +9,7 @@ license = "MIT"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "coincurve (>=21.0.0,<22.0.0)"
 ]
 
 [dependency-groups]
