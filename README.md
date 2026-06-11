@@ -117,7 +117,7 @@ Requires Python 3.10+ and [Poetry](https://python-poetry.org/docs/#installation)
 ```bash
 git clone https://github.com/feferulo/python-nostr
 cd python-nostr
-poetry install
+uv sync
 ```
 
 Poetry creates and manages the virtual environment automatically. All dependencies including dev dependencies are installed in one command.
@@ -125,7 +125,7 @@ Poetry creates and manages the virtual environment automatically. All dependenci
 ## Running tests
 
 ```bash
-poetry run pytest
+uv run pytest
 ```
 
 ## Design decisions
