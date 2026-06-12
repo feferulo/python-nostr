@@ -14,11 +14,15 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
 ]
-dependencies = ["coincurve (>=21.0.0,<22.0.0)"]
+dependencies = [
+    "aiosqlite>=0.22.1",
+    "coincurve (>=21.0.0,<22.0.0)",
+]
 
 [dependency-groups]
 dev = [
-    "pytest (>=9.0.3,<10.0.0)"
+    "pytest (>=9.0.3,<10.0.0)",
+    "pytest-asyncio>=1.4.0",
 ]
 
 [tool.hatch.build.targets.sdist]
@@ -48,5 +52,7 @@ build-backend = "hatchling.build"
 addopts = ["--import-mode=importlib"]
 testpaths = ["tests"]
 pythonpath = ["src"]
+asyncio_mode = "auto"
+
 
 
